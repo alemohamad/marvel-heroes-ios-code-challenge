@@ -10,27 +10,57 @@ import SwiftUI
 import URLImage
 
 struct CharacterDetail: View {
+    @ObservedObject var characterObject = CharacterObject()
     let character: Character
     
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading) {
-                URLImage(character.thumbnail.url!,
-                         delay: 0.25,
-                         placeholder: Image("marvel-placeholder")
-                            .resizable()
-                ) { proxy in
-                    proxy.image
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
+        List {
+            ForEach(characterObject.comics) { comic in
+                NavigationLink(destination: ComicDetailView(comic: comic)) {
+                    HStack(alignment: .top, spacing: 16) {
+                        VStack {
+                            URLImage(comic.thumbnail.url!,
+                                     delay: 0.25,
+                                     processors: [ Resize(size: CGSize(width: 100.0, height: 140.0), scale: UIScreen.main.scale) ],
+                                     placeholder: Image("marvel-placeholder")
+                                        .resizable()
+                            ) { proxy in
+                                proxy.image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .clipped()
+                            }
+                            .frame(width: 100.0, height: 140.0)
+                            
+                            Group {
+                                Text("Issue #\(comic.issueNumber)")
+                                    .bold()
+                                
+                                Text("\(comic.pageCount) pages")
+                            }
+                            .font(.caption)
+                        }
+                        
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text(comic.title)
+                                .font(.headline)
+                                .foregroundColor(.primary)
+                            Text(comic.fullDescription)
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                    }
                 }
-                
-                Text(character.fullDescription)
-                    .foregroundColor(.primary)
-                    .padding()
             }
         }
         .navigationBarTitle(Text(character.name), displayMode: .inline)
+        .navigationBarItems(trailing:
+            Text("\(characterObject.totalComics)")
+                .font(.caption)
+        )
+        .onAppear {
+            self.characterObject.getComics(byCharacterID: self.character.id)
+        }
     }
 }
 

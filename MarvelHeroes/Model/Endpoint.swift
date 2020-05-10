@@ -66,4 +66,10 @@ extension Endpoint {
             searchName: name
         )
     }
+    
+    static func comics(byCharacterID id: Int) -> Self {
+        Endpoint(
+            path: "characters/\(id)/comics"
+        )
+    }
 }

@@ -13,6 +13,7 @@
 		9943D0DB246858820005BAFE /* CharacterObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9943D0DA246858820005BAFE /* CharacterObject.swift */; };
 		9943D0DF24685EB70005BAFE /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9943D0DE24685EB70005BAFE /* TestData.swift */; };
 		9943D0E2246865380005BAFE /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 9943D0E1246865380005BAFE /* URLImage */; };
+		9943D0E62468ABB90005BAFE /* ComicDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9943D0E52468ABB90005BAFE /* ComicDetailView.swift */; };
 		99B4E44B246823B500BFAE5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B4E44A246823B500BFAE5F /* AppDelegate.swift */; };
 		99B4E44D246823B500BFAE5F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B4E44C246823B500BFAE5F /* SceneDelegate.swift */; };
 		99B4E44F246823B500BFAE5F /* HeroesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B4E44E246823B500BFAE5F /* HeroesListView.swift */; };
@@ -28,6 +29,7 @@
 		9943D0DA246858820005BAFE /* CharacterObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterObject.swift; sourceTree = "<group>"; };
 		9943D0DE24685EB70005BAFE /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		9943D0E324686CBC0005BAFE /* MarvelConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = MarvelConfig.xcconfig; sourceTree = "<group>"; };
+		9943D0E52468ABB90005BAFE /* ComicDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDetailView.swift; sourceTree = "<group>"; };
 		99B4E447246823B500BFAE5F /* Heroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Heroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99B4E44A246823B500BFAE5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99B4E44C246823B500BFAE5F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 			children = (
 				99B4E44E246823B500BFAE5F /* HeroesListView.swift */,
 				9943D0D424684EC10005BAFE /* CharacterDetail.swift */,
+				9943D0E52468ABB90005BAFE /* ComicDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				99B4E44D246823B500BFAE5F /* SceneDelegate.swift in Sources */,
 				9943D0D9246857840005BAFE /* Endpoint.swift in Sources */,
 				99B4E44F246823B500BFAE5F /* HeroesListView.swift in Sources */,
+				9943D0E62468ABB90005BAFE /* ComicDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
