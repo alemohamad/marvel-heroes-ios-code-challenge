@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct HeroesListView: View {
+    @ObservedObject var characterObject = CharacterObject()
+    
     init() {
         UITableView.appearance().separatorColor = .clear
     }
@@ -16,9 +18,9 @@ struct HeroesListView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(0..<5) { i in
+                ForEach(self.characterObject.characters) { character in
                     NavigationLink(destination: CharacterDetail()) {
-                        CharacterCellView()
+                        CharacterCellView(character: character)
                     }
                 }
             }
@@ -30,12 +32,17 @@ struct HeroesListView: View {
                         .frame(width: 20, height: 20)
                 }
             )
+            .onAppear {
+                self.characterObject.getCharacters(byName: "Sp")
+            }
         }
     }
 }
 
 extension HeroesListView {
     struct CharacterCellView: View {
+        let character: Character
+        
         var body: some View {
             HStack(alignment: .top, spacing: 16.0) {
                 Image("spiderman")
@@ -46,11 +53,11 @@ extension HeroesListView {
                     .shadow(radius: 10)
                 
                 VStack(alignment: .leading, spacing: 8.0) {
-                    Text("Spider-Man")
+                    Text(character.name)
                         .font(.headline)
                         .foregroundColor(.primary)
                     
-                    Text("Bitten by a radioactive spider, high school student Peter Parker gained the speed, strength and powers of a spider. Adopting the name Spider-Man, Peter hoped to start a career using his new abilities. Taught that with great power comes great responsibility, Spidey has vowed to use his powers to help people.")
+                    Text(character.description)
                         .lineLimit(3)
                         .font(.caption)
                         .foregroundColor(.secondary)
@@ -62,6 +69,8 @@ extension HeroesListView {
 }
 
 struct HeroesListView_Previews: PreviewProvider {
+    static let character = TestData.character
+    
     static var previews: some View {
         Group {
             HeroesListView()
@@ -71,7 +80,7 @@ struct HeroesListView_Previews: PreviewProvider {
                 .environment(\.colorScheme, .dark)
                 .previewDisplayName("Dark Mode")
             
-            HeroesListView.CharacterCellView()
+            HeroesListView.CharacterCellView(character: character)
                 .previewLayout(.sizeThatFits)
                 .previewDisplayName("List character")
         }
