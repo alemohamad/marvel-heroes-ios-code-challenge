@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,7 @@
 		9943D0D9246857840005BAFE /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9943D0D8246857840005BAFE /* Endpoint.swift */; };
 		9943D0DB246858820005BAFE /* CharacterObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9943D0DA246858820005BAFE /* CharacterObject.swift */; };
 		9943D0DF24685EB70005BAFE /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9943D0DE24685EB70005BAFE /* TestData.swift */; };
+		9943D0E2246865380005BAFE /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 9943D0E1246865380005BAFE /* URLImage */; };
 		99B4E44B246823B500BFAE5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B4E44A246823B500BFAE5F /* AppDelegate.swift */; };
 		99B4E44D246823B500BFAE5F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B4E44C246823B500BFAE5F /* SceneDelegate.swift */; };
 		99B4E44F246823B500BFAE5F /* HeroesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B4E44E246823B500BFAE5F /* HeroesListView.swift */; };
@@ -41,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9943D0E2246865380005BAFE /* URLImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +124,9 @@
 			dependencies = (
 			);
 			name = MarvelHeroes;
+			packageProductDependencies = (
+				9943D0E1246865380005BAFE /* URLImage */,
+			);
 			productName = MarvelHeroes;
 			productReference = 99B4E447246823B500BFAE5F /* MarvelHeroes.app */;
 			productType = "com.apple.product-type.application";
@@ -150,6 +155,9 @@
 				Base,
 			);
 			mainGroup = 99B4E43E246823B500BFAE5F;
+			packageReferences = (
+				9943D0E0246865380005BAFE /* XCRemoteSwiftPackageReference "url-image" */,
+			);
 			productRefGroup = 99B4E448246823B500BFAE5F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -378,6 +386,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9943D0E0246865380005BAFE /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.15;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9943D0E1246865380005BAFE /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9943D0E0246865380005BAFE /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 99B4E43F246823B500BFAE5F /* Project object */;
 }

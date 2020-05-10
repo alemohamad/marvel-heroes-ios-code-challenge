@@ -7,18 +7,25 @@
 //
 
 import SwiftUI
+import URLImage
 
 struct CharacterDetail: View {
     let character: Character
     
     var body: some View {
         ScrollView {
-            VStack {
-                Image("spiderman")
-                    .resizable()
-                    .scaledToFit()
+            VStack(alignment: .leading) {
+                URLImage(character.thumbnail.url!,
+                         delay: 0.25,
+                         placeholder: Image("marvel-placeholder")
+                            .resizable()
+                ) { proxy in
+                    proxy.image
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                }
                 
-                Text(character.description)
+                Text(character.fullDescription)
                     .foregroundColor(.primary)
                     .padding()
             }

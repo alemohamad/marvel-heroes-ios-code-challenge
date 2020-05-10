@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import URLImage
 
 struct HeroesListView: View {
     @ObservedObject var characterObject = CharacterObject()
@@ -45,19 +46,27 @@ extension HeroesListView {
         
         var body: some View {
             HStack(alignment: .top, spacing: 16.0) {
-                Image("spiderman")
-                    .resizable()
-                    .scaledToFill()
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .frame(width: 80, height: 80)
-                    .shadow(radius: 10)
+                URLImage(character.thumbnail.url!,
+                         delay: 0.25,
+                         processors: [ Resize(size: CGSize(width: 80.0, height: 80.0), scale: UIScreen.main.scale) ],
+                         placeholder: Image("marvel-placeholder")
+                            .resizable()
+                ) { proxy in
+                    proxy.image
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .clipped()
+                }
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .frame(width: 80, height: 80)
+                .shadow(radius: 10)
                 
                 VStack(alignment: .leading, spacing: 8.0) {
                     Text(character.name)
                         .font(.headline)
                         .foregroundColor(.primary)
                     
-                    Text(character.description)
+                    Text(character.fullDescription)
                         .lineLimit(3)
                         .font(.caption)
                         .foregroundColor(.secondary)

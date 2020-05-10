@@ -27,6 +27,10 @@ struct Character: Codable, Identifiable {
     let name: String
     let description: String
     let thumbnail: CharacterImage
+    
+    var fullDescription: String {
+        self.description.isEmpty ? "No description" : self.description
+    }
 }
 
 struct CharacterImage: Codable {
@@ -34,6 +38,11 @@ struct CharacterImage: Codable {
     let `extension`: String
     
     var completePath: String {
-        "\(path).\(`extension`)"
+        let httpsPath = path.replacingOccurrences(of: "http", with: "https")
+        return "\(httpsPath).\(`extension`)"
+    }
+    
+    var url: URL? {
+        return URL(string: completePath)
     }
 }
