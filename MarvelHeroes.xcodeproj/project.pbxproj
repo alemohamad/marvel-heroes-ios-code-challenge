@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9943D0D524684EC10005BAFE /* CharacterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9943D0D424684EC10005BAFE /* CharacterDetail.swift */; };
 		99B4E44B246823B500BFAE5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B4E44A246823B500BFAE5F /* AppDelegate.swift */; };
 		99B4E44D246823B500BFAE5F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B4E44C246823B500BFAE5F /* SceneDelegate.swift */; };
 		99B4E44F246823B500BFAE5F /* HeroesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B4E44E246823B500BFAE5F /* HeroesListView.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9943D0D424684EC10005BAFE /* CharacterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetail.swift; sourceTree = "<group>"; };
 		99B4E447246823B500BFAE5F /* MarvelHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99B4E44A246823B500BFAE5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99B4E44C246823B500BFAE5F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				99B4E44A246823B500BFAE5F /* AppDelegate.swift */,
 				99B4E44C246823B500BFAE5F /* SceneDelegate.swift */,
 				99B4E44E246823B500BFAE5F /* HeroesListView.swift */,
+				9943D0D424684EC10005BAFE /* CharacterDetail.swift */,
 				99B4E450246823B900BFAE5F /* Assets.xcassets */,
 				99B4E455246823B900BFAE5F /* LaunchScreen.storyboard */,
 				99B4E458246823B900BFAE5F /* Info.plist */,
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9943D0D524684EC10005BAFE /* CharacterDetail.swift in Sources */,
 				99B4E44B246823B500BFAE5F /* AppDelegate.swift in Sources */,
 				99B4E44D246823B500BFAE5F /* SceneDelegate.swift in Sources */,
 				99B4E44F246823B500BFAE5F /* HeroesListView.swift in Sources */,
