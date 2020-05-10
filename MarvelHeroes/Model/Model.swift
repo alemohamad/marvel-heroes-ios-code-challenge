@@ -38,7 +38,7 @@ struct CharacterImage: Codable {
     let `extension`: String
     
     var completePath: String {
-        let httpsPath = path.replacingOccurrences(of: "http", with: "https")
+        let httpsPath = path.replacingOccurrences(of: "http://", with: "https://")
         return "\(httpsPath).\(`extension`)"
     }
     
