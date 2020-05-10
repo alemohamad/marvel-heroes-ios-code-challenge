@@ -12,6 +12,7 @@ import CryptoKit
 struct Endpoint {
     var path: String
     var queryItems: [URLQueryItem] = []
+    var searchName: String = ""
     var limit: Int = 20
     var offset: Int = 0
 }
@@ -28,6 +29,12 @@ extension Endpoint {
             URLQueryItem(name: "limit",  value: String(limit)),
             URLQueryItem(name: "offset", value: String(offset))
         ])
+        
+        if !searchName.isEmpty {
+            components.queryItems?.append(contentsOf: [
+                URLQueryItem(name: "nameStartsWith", value: searchName)
+            ])
+        }
         
         let timestamp = Int64(Date().timeIntervalSince1970.rounded())
         let apikey = Bundle.main.infoDictionary?["MarvelApiKey"] as! String
@@ -56,9 +63,7 @@ extension Endpoint {
     static func character(nameStartingWith name: String) -> Self {
         Endpoint(
             path: "characters",
-            queryItems: [
-                URLQueryItem(name: "nameStartsWith", value: name)
-            ]
+            searchName: name
         )
     }
 }

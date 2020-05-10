@@ -17,16 +17,25 @@ class CharacterObject: ObservableObject {
         let endpoint = Endpoint.character(nameStartingWith: name)
         
         let task = session.dataTask(with: endpoint.url) { data, response, error in
+            if let error = error {
+                print(error.localizedDescription)
+                fatalError("There was an API error")
+            }
+            
+            guard response != nil else {
+                fatalError("No data response")
+            }
+            
             guard let data = data else {
-                fatalError("No data")
+                fatalError("No valid data")
             }
             
             do {
                 let dataResults = try JSONDecoder().decode(DataResult.self, from: data)
                 
                 DispatchQueue.main.async {
-                    self.totalCharacters = dataResults.data.total
                     self.characters = dataResults.data.results
+                    self.totalCharacters = dataResults.data.total
                 }
             } catch {
                 fatalError("Bad format data")
