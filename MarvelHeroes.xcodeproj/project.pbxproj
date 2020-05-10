@@ -27,7 +27,8 @@
 		9943D0D8246857840005BAFE /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		9943D0DA246858820005BAFE /* CharacterObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterObject.swift; sourceTree = "<group>"; };
 		9943D0DE24685EB70005BAFE /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
-		99B4E447246823B500BFAE5F /* MarvelHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9943D0E324686CBC0005BAFE /* MarvelConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = MarvelConfig.xcconfig; sourceTree = "<group>"; };
+		99B4E447246823B500BFAE5F /* Heroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Heroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99B4E44A246823B500BFAE5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99B4E44C246823B500BFAE5F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		99B4E44E246823B500BFAE5F /* HeroesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesListView.swift; sourceTree = "<group>"; };
@@ -79,7 +80,7 @@
 		99B4E448246823B500BFAE5F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				99B4E447246823B500BFAE5F /* MarvelHeroes.app */,
+				99B4E447246823B500BFAE5F /* Heroes.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -94,6 +95,7 @@
 				99B4E450246823B900BFAE5F /* Assets.xcassets */,
 				99B4E455246823B900BFAE5F /* LaunchScreen.storyboard */,
 				99B4E458246823B900BFAE5F /* Info.plist */,
+				9943D0E324686CBC0005BAFE /* MarvelConfig.xcconfig */,
 				99B4E452246823B900BFAE5F /* Preview Content */,
 			);
 			path = MarvelHeroes;
@@ -128,7 +130,7 @@
 				9943D0E1246865380005BAFE /* URLImage */,
 			);
 			productName = MarvelHeroes;
-			productReference = 99B4E447246823B500BFAE5F /* MarvelHeroes.app */;
+			productReference = 99B4E447246823B500BFAE5F /* Heroes.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -212,6 +214,7 @@
 /* Begin XCBuildConfiguration section */
 		99B4E459246823B900BFAE5F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9943D0E324686CBC0005BAFE /* MarvelConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -272,6 +275,7 @@
 		};
 		99B4E45A246823B900BFAE5F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9943D0E324686CBC0005BAFE /* MarvelConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -326,6 +330,7 @@
 		};
 		99B4E45C246823B900BFAE5F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9943D0E324686CBC0005BAFE /* MarvelConfig.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -338,7 +343,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.alemohamad.MarvelHeroes;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Heroes;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -346,6 +351,7 @@
 		};
 		99B4E45D246823B900BFAE5F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9943D0E324686CBC0005BAFE /* MarvelConfig.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -358,7 +364,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.alemohamad.MarvelHeroes;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Heroes;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

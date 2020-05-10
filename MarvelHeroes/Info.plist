@@ -56,5 +56,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>MarvelApiKey</key>
+	<string>$(MARVEL_API_KEY)</string>
+	<key>MarvelPrivateKey</key>
+	<string>$(MARVEL_PRIVATE_KEY)</string>
 </dict>
 </plist>

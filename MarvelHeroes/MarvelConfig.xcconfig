@@ -1,0 +1,14 @@
+//
+//  MarvelConfig.xcconfig
+//  MarvelHeroes
+//
+//  Created by Ale Mohamad on 10/05/2020.
+//  Copyright © 2020 Ale Mohamad. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+// Marvel API Keys
+MARVEL_API_KEY = key
+MARVEL_PRIVATE_KEY = key

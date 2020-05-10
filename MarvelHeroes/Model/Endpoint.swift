@@ -30,8 +30,8 @@ extension Endpoint {
         ])
         
         let timestamp = Int64(Date().timeIntervalSince1970.rounded())
-        let apikey = "1b796dea877e215e9fe3ea4271dfdf86"
-        let privatekey = "b8ed445193996840eae1852592d51177436bb224"
+        let apikey = Bundle.main.infoDictionary?["MarvelApiKey"] as! String
+        let privatekey = Bundle.main.infoDictionary?["MarvelPrivateKey"] as! String
         
         if let strings2HashData = "\(timestamp)\(privatekey)\(apikey)".data(using: .utf8) {
             let hash = Insecure.MD5.hash(data: strings2HashData)
