@@ -19,7 +19,7 @@ struct HeroesListView: View {
         NavigationView {
             List {
                 ForEach(self.characterObject.characters) { character in
-                    NavigationLink(destination: CharacterDetail()) {
+                    NavigationLink(destination: CharacterDetail(character: character)) {
                         CharacterCellView(character: character)
                     }
                 }
