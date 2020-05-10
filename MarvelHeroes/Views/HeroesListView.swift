@@ -24,7 +24,7 @@ struct HeroesListView: View {
                     .frame(height: 40)
                 
                 ForEach(self.characterObject.characters) { character in
-                    NavigationLink(destination: CharacterDetail(character: character)) {
+                    NavigationLink(destination: HeroesComicsView(character: character)) {
                         CharacterCellView(character: character)
                     }
                 }
@@ -76,7 +76,7 @@ extension HeroesListView {
             HStack(alignment: .top, spacing: 16.0) {
                 URLImage(character.thumbnail.url!,
                          delay: 0.25,
-                         processors: [ Resize(size: CGSize(width: 80.0, height: 80.0), scale: UIScreen.main.scale) ],
+                         processors: [ Resize(size: CGSize(width: 100.0, height: 100.0), scale: UIScreen.main.scale) ],
                          placeholder: Image("marvel-placeholder")
                             .resizable()
                 ) { proxy in
@@ -86,7 +86,7 @@ extension HeroesListView {
                         .clipped()
                 }
                 .clipShape(RoundedRectangle(cornerRadius: 10))
-                .frame(width: 80, height: 80)
+                .frame(width: 100, height: 100)
                 .shadow(radius: 10)
                 
                 VStack(alignment: .leading, spacing: 8.0) {
@@ -95,7 +95,7 @@ extension HeroesListView {
                         .foregroundColor(.primary)
                     
                     Text(character.fullDescription)
-                        .lineLimit(3)
+                        .lineLimit(nil)
                         .font(.caption)
                         .foregroundColor(.secondary)
                 }

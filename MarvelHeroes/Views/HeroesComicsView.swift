@@ -1,5 +1,5 @@
 //
-//  CharacterDetail.swift
+//  HeroesComicsView.swift
 //  MarvelHeroes
 //
 //  Created by Ale Mohamad on 10/05/2020.
@@ -9,7 +9,7 @@
 import SwiftUI
 import URLImage
 
-struct CharacterDetail: View {
+struct HeroesComicsView: View {
     @ObservedObject var characterObject = CharacterObject()
     let character: Character
     
@@ -21,7 +21,7 @@ struct CharacterDetail: View {
                         VStack {
                             URLImage(comic.thumbnail.url!,
                                      delay: 0.25,
-                                     processors: [ Resize(size: CGSize(width: 100.0, height: 140.0), scale: UIScreen.main.scale) ],
+                                     processors: [ Resize(size: CGSize(width: 100.0, height: 160.0), scale: UIScreen.main.scale) ],
                                      placeholder: Image("marvel-placeholder")
                                         .resizable()
                             ) { proxy in
@@ -30,7 +30,8 @@ struct CharacterDetail: View {
                                     .aspectRatio(contentMode: .fit)
                                     .clipped()
                             }
-                            .frame(width: 100.0, height: 140.0)
+                            .frame(width: 100.0, height: 160.0)
+                            .shadow(radius: 10)
                             
                             Group {
                                 Text("Issue #\(comic.issueNumber)")
@@ -64,12 +65,12 @@ struct CharacterDetail: View {
     }
 }
 
-struct CharacterDetail_Previews: PreviewProvider {
+struct HeroesComicsView_Previews: PreviewProvider {
     static let character = TestData.character
     
     static var previews: some View {
         NavigationView {
-            CharacterDetail(character: character)
+            HeroesComicsView(character: character)
         }
     }
 }

@@ -7,12 +7,34 @@
 //
 
 import SwiftUI
+import URLImage
 
 struct ComicDetailView: View {
     let comic: Comic
     
     var body: some View {
-        Text("Comic: \(comic.title)")
+        ScrollView {
+            VStack(alignment: .leading) {
+                URLImage(comic.thumbnail.url!,
+                         delay: 0.25,
+                         processors: [ Resize(size: CGSize(width: 180.0, height: 280.0), scale: UIScreen.main.scale) ],
+                         placeholder: Image("marvel-placeholder")
+                            .resizable()
+                ) { proxy in
+                    proxy.image
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .clipped()
+                }
+                .frame(width: 200.0, height: 320.0)
+                .shadow(radius: 10)
+                
+                Text(comic.title)
+                    .font(.title)
+            }
+            .padding()
+        }
+        .navigationBarTitle(comic.title)
     }
 }
 

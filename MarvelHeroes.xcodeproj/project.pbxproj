@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9943D0D524684EC10005BAFE /* CharacterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9943D0D424684EC10005BAFE /* CharacterDetail.swift */; };
+		9943D0D524684EC10005BAFE /* HeroesComicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9943D0D424684EC10005BAFE /* HeroesComicsView.swift */; };
 		9943D0D7246857330005BAFE /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9943D0D6246857330005BAFE /* Model.swift */; };
 		9943D0D9246857840005BAFE /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9943D0D8246857840005BAFE /* Endpoint.swift */; };
 		9943D0DB246858820005BAFE /* CharacterObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9943D0DA246858820005BAFE /* CharacterObject.swift */; };
@@ -23,7 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9943D0D424684EC10005BAFE /* CharacterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetail.swift; sourceTree = "<group>"; };
+		9943D0D424684EC10005BAFE /* HeroesComicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesComicsView.swift; sourceTree = "<group>"; };
 		9943D0D6246857330005BAFE /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		9943D0D8246857840005BAFE /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		9943D0DA246858820005BAFE /* CharacterObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterObject.swift; sourceTree = "<group>"; };
@@ -66,7 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				99B4E44E246823B500BFAE5F /* HeroesListView.swift */,
-				9943D0D424684EC10005BAFE /* CharacterDetail.swift */,
+				9943D0D424684EC10005BAFE /* HeroesComicsView.swift */,
 				9943D0E52468ABB90005BAFE /* ComicDetailView.swift */,
 			);
 			path = Views;
@@ -191,7 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9943D0D7246857330005BAFE /* Model.swift in Sources */,
-				9943D0D524684EC10005BAFE /* CharacterDetail.swift in Sources */,
+				9943D0D524684EC10005BAFE /* HeroesComicsView.swift in Sources */,
 				9943D0DB246858820005BAFE /* CharacterObject.swift in Sources */,
 				9943D0DF24685EB70005BAFE /* TestData.swift in Sources */,
 				99B4E44B246823B500BFAE5F /* AppDelegate.swift in Sources */,
