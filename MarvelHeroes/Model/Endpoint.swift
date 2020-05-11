@@ -60,16 +60,18 @@ extension Endpoint {
 }
 
 extension Endpoint {
-    static func character(nameStartingWith name: String) -> Self {
+    static func character(nameStartingWith name: String, offset: Int = 0) -> Self {
         Endpoint(
             path: "characters",
-            searchName: name
+            searchName: name,
+            offset: offset
         )
     }
     
-    static func comics(byCharacterID id: Int) -> Self {
+    static func comics(byCharacterID id: Int, offset: Int = 0) -> Self {
         Endpoint(
-            path: "characters/\(id)/comics"
+            path: "characters/\(id)/comics",
+            offset: offset
         )
     }
 }

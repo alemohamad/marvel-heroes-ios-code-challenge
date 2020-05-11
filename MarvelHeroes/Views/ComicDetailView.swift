@@ -14,7 +14,7 @@ struct ComicDetailView: View {
     
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 16) {
                 URLImage(comic.thumbnail.url!,
                          delay: 0.25,
                          processors: [ Resize(size: CGSize(width: 180.0, height: 280.0), scale: UIScreen.main.scale) ],
@@ -31,10 +31,55 @@ struct ComicDetailView: View {
                 
                 Text(comic.title)
                     .font(.title)
+                    .bold()
+                    .foregroundColor(.primary)
+                    .lineLimit(nil)
+                
+                Text(comic.fullDescription)
+                    .foregroundColor(.secondary)
+                    .font(.caption)
+                
+                Divider()
+                
+                HStack(spacing: 16) {
+                    VStack(alignment: .leading) {
+                        Text("Format")
+                            .bold()
+                        Text(comic.format)
+                    }
+                    
+                    Spacer()
+                    
+                    if !comic.isbn.isEmpty {
+                        VStack(alignment: .trailing) {
+                            Text("ISBN")
+                                .bold()
+                            Text(comic.isbn)
+                        }
+                    }
+                }
+                .font(.footnote)
+                
+                Divider()
+                
+                HStack(spacing: 16) {
+                    if comic.issueNumber > 0 {
+                        Text("Issue #\(comic.issueNumber)")
+                            .bold()
+                    }
+                    
+                    Spacer()
+                    
+                    if comic.pageCount > 0 {
+                        Text("\(comic.pageCount) pages")
+                            .bold()
+                    }
+                }
+                .font(.footnote)
             }
             .padding()
         }
-        .navigationBarTitle(comic.title)
+        .navigationBarTitle(Text(comic.title), displayMode: .inline)
     }
 }
 
@@ -42,6 +87,18 @@ struct ComicDetailView_Previews: PreviewProvider {
     static let comic = TestData.comic
     
     static var previews: some View {
-        ComicDetailView(comic: comic)
+        Group {
+            NavigationView {
+                ComicDetailView(comic: comic)
+            }
+            .previewDisplayName("Comic Detail")
+            
+            NavigationView {
+                ComicDetailView(comic: comic)
+            }
+            .previewDisplayName("Comic Detail - Dark Mode")
+            .background(Color(.systemBackground))
+            .environment(\.colorScheme, .dark)
+        }
     }
 }

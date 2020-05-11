@@ -13,10 +13,6 @@ struct HeroesListView: View {
     @ObservedObject var characterObject = CharacterObject()
     @State private var nameToSearch = ""
     
-    init() {
-        UITableView.appearance().separatorColor = .clear
-    }
-    
     var body: some View {
         NavigationView {
             List {
@@ -25,7 +21,7 @@ struct HeroesListView: View {
                 
                 ForEach(self.characterObject.characters) { character in
                     NavigationLink(destination: HeroesComicsView(character: character)) {
-                        CharacterCellView(character: character)
+                        CharacterCellView(nameToSearch: self.nameToSearch, character: character, isLast: self.characterObject.isLastCharacter(id: character.id))
                     }
                 }
                 
@@ -57,20 +53,24 @@ struct HeroesListView: View {
                 .padding(.horizontal, 16)
                 , alignment: .top)
             .navigationBarTitle(Text("Marvel Heroes"), displayMode: .inline)
-            .navigationBarItems(trailing:
-                Text("\(characterObject.totalCharacters)")
+            .navigationBarItems(
+                trailing: Text("\(characterObject.characters.count) / \(characterObject.totalCharacters)")
                     .font(.caption)
             )
             .onAppear {
                 self.characterObject.getCharacters(byName: self.nameToSearch)
             }
         }
+        .environmentObject(characterObject)
     }
 }
 
 extension HeroesListView {
     struct CharacterCellView: View {
+        @EnvironmentObject var characterObject: CharacterObject
+        let nameToSearch: String
         let character: Character
+        let isLast: Bool
         
         var body: some View {
             HStack(alignment: .top, spacing: 16.0) {
@@ -87,7 +87,7 @@ extension HeroesListView {
                 }
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .frame(width: 100, height: 100)
-                .shadow(radius: 10)
+                .shadow(radius: 5)
                 
                 VStack(alignment: .leading, spacing: 8.0) {
                     Text(character.name)
@@ -99,8 +99,14 @@ extension HeroesListView {
                         .font(.caption)
                         .foregroundColor(.secondary)
                 }
+                .onAppear {
+                    if self.isLast {
+                        self.characterObject.getCharacters(byName: self.nameToSearch)
+                    }
+                }
             }
-            .padding(8.0)
+            .padding(.horizontal, 8.0)
+            .padding(.vertical, 16.0)
         }
     }
 }
@@ -113,11 +119,11 @@ struct HeroesListView_Previews: PreviewProvider {
             HeroesListView()
                 .previewDisplayName("List of Character")
             
-            HeroesListView.CharacterCellView(character: character)
+            HeroesListView.CharacterCellView(nameToSearch: "", character: character, isLast: false)
                 .previewLayout(.sizeThatFits)
                 .previewDisplayName("Character Item")
             
-            HeroesListView.CharacterCellView(character: character)
+            HeroesListView.CharacterCellView(nameToSearch: "", character: character, isLast: false)
                 .previewLayout(.sizeThatFits)
                 .background(Color(.systemBackground))
                 .environment(\.colorScheme, .dark)

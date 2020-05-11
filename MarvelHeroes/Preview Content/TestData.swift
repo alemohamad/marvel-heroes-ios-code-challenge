@@ -34,8 +34,8 @@ struct TestData {
         description: "Spider-Man's Clone Saga has spun completely out of control! There's only one team that can save the wall-crawler now: the Marvel editors! Bob Harras, Ralph Macchio, Tom Brevoort, and more put their heads together to see if ANYTHING can get Spidey out of this doppelganger debacle!",
         thumbnail: comicImage,
         issueNumber: 1,
-        isbn: "",
-        pageCount: 0,
+        isbn: "0-7851-2010-6",
+        pageCount: 36,
         format: "Comic"
     )
 }

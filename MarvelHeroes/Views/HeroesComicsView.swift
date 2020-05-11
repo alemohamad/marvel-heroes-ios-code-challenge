@@ -34,10 +34,14 @@ struct HeroesComicsView: View {
                             .shadow(radius: 10)
                             
                             Group {
-                                Text("Issue #\(comic.issueNumber)")
-                                    .bold()
+                                if comic.issueNumber > 0 {
+                                    Text("Issue #\(comic.issueNumber)")
+                                        .bold()
+                                }
                                 
-                                Text("\(comic.pageCount) pages")
+                                if comic.pageCount > 0 {
+                                    Text("\(comic.pageCount) pages")
+                                }
                             }
                             .font(.caption)
                         }
@@ -47,16 +51,25 @@ struct HeroesComicsView: View {
                                 .font(.headline)
                                 .foregroundColor(.primary)
                             Text(comic.fullDescription)
+                                .lineLimit(4)
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                         }
+                        .onAppear {
+                            let isLast = self.characterObject.isLastComic(id: comic.id)
+                            
+                            if isLast {
+                                self.characterObject.getComics(byCharacterID: self.character.id)
+                            }
+                        }
                     }
+                    .padding()
                 }
             }
         }
         .navigationBarTitle(Text(character.name), displayMode: .inline)
         .navigationBarItems(trailing:
-            Text("\(characterObject.totalComics)")
+            Text("\(characterObject.comics.count) / \(characterObject.totalComics)")
                 .font(.caption)
         )
         .onAppear {
